@@ -9,7 +9,7 @@ class Test {
     public:
     int *var;
     char *ptr;
-    Test(): var(nullptr), ptr(nullptr){}
+
     Test(int num, const char *ptr2) {
         var = new int(num);
         ptr = new char[strlen(ptr2)+1];
@@ -21,12 +21,14 @@ class Test {
         ptr = new char[strlen(rhs.ptr)+1];
         strcpy(ptr, rhs.ptr);
     }
+
     ~Test(){
         cout<< "Destructor called!" <<endl;
         delete var;
         delete[] ptr;
     }
 };
+
 int main()
 {
     Test t(2, "Hello");
